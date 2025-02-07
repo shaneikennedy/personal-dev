@@ -72,7 +72,7 @@ export default function Home() {
               <pre className="ml-4 overflow-x-auto">
 {`
 ┌──────────────────────────────────────────┐
-│ blog: `}<Link href="/blog" target="_blank" rel="noopener noreferrer" className="hover:underline">$ cd blog/ </Link>{`                        │
+│ blog: `}<Link href="/blog" rel="noopener noreferrer" className="hover:underline">$ cd blog/ </Link>{`                        │
 │ x: `}<a href="https://x.com/shaneikennedy" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">@shaneikennedy</a>{`                        │
 └──────────────────────────────────────────┘
 `}

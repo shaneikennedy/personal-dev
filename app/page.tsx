@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link';
 import { useState, useEffect } from 'react'
 
 export default function Home() {
@@ -7,7 +8,7 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true)
-  }, []); 
+  }, []);
 
   if (!mounted) return null
 
@@ -17,12 +18,12 @@ export default function Home() {
         <div className="rounded-lg bg-black text-green-500 shadow-sm font-mono p-6">
           <pre className="text-xs sm:text-sm md:text-base whitespace-pre overflow-x-auto">
 {`
- ____  _                      _  __                          _       
-/ ___|| |__   __ _ _ __   ___| |/ /___ _ __  _ __   ___  __| |_   _ 
+ ____  _                      _  __                          _
+/ ___|| |__   __ _ _ __   ___| |/ /___ _ __  _ __   ___  __| |_   _
 \\___ \\| '_ \\ / _\` | '_ \\ / _ \\ ' // _ \\ '_ \\| '_ \\ / _ \\/ _\` | | | |
  ___) | | | | (_| | | | |  __/ . \\  __/ | | | | | |  __/ (_| | |_| |
 |____/|_| |_|\\__,_|_| |_|\\___|_|\\_\\___|_| |_|_| |_|\\___|\\__,_|\\__, |
-                                                               |___/ 
+                                                               |___/
 `}
           </pre>
           <div className="mt-6 space-y-4">
@@ -71,7 +72,7 @@ export default function Home() {
               <pre className="ml-4 overflow-x-auto">
 {`
 ┌──────────────────────────────────────────┐
-│ blog: `}<a href="https://juniordeveloperdiaries.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">juniordeveloperdiaries.com</a>{`         │
+│ blog: `}<Link href="/blog" target="_blank" rel="noopener noreferrer" className="hover:underline">$ cd blog/ </Link>{`                        │
 │ x: `}<a href="https://x.com/shaneikennedy" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">@shaneikennedy</a>{`                        │
 └──────────────────────────────────────────┘
 `}
@@ -98,4 +99,3 @@ export default function Home() {
     </main>
   )
 }
-

@@ -53,16 +53,22 @@ export default function Home() {
               <h2 className="text-green-500 text-lg sm:text-xl">{'>'} projects</h2>
               <pre className="ml-4 overflow-x-auto">
 {`
-┌────────────────────────────────────────────────────────────────┐
-│ npm.el/bun.el                                                  │
-│ └─ npm and bun clients for emacs                               │
-├────────────────────────────────────────────────────────────────┤
-│ findmyvibe                                                     │
-│ └─ Spotify playlists for how you're really feeling             │
-├────────────────────────────────────────────────────────────────┤
-│ kafka-to-http                                                  │
-│ └─ Stream data from Kafka topics to HTTP endpoints             │
-└────────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────-----------------┐
+│ npm.el/bun.el                                                                   │
+│ └─ npm and bun clients for emacs                                                │
+├────────────────────────────────────────────────────────────────-----------------┤
+│ findmyvibe                                                                      │
+│ └─ Spotify playlists for how you're really feeling                              │
+├────────────────────────────────────────────────────────────────-----------------┤
+│ kafka-to-http                                                                   │
+│ └─ Stream data from Kafka topics to HTTP endpoints                              │
+├────────────────────────────────────────────────────────────────-----------------┤
+│ pydepsync                                                                       │
+│ └─ Sync dependencies in your python codebase to your pyproject.toml             │
+├────────────────────────────────────────────────────────────────-----------------┤
+│ ktui                                                                            │
+│ └─ A kafka tui to view config, topics and live tail data                        │
+└────────────────────────────────────────────────────────────────-----------------┘
 `}
               </pre>
             </section>

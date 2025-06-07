@@ -66,3 +66,8 @@ Some really nice features to point out:
 - `M-x amp--switch` shortcut to list all your open amp buffers and easily switch between them.
 
 - `M-x amp--kill` shortcut to select a running amp buffer to kill.
+
+
+## Other resources:
+- [aideremacs](https://github.com/MatthewZMD/aidermacs) Really well done, bring-your-own-key so it's agent agnostic. It's also way more developed in terms of number of commands, and comes with a transient menu for discoverabillity. Definitely worth checking out if you don't mind the BYOK approach.
+- [ellama](https://github.com/s-kostyaev/ellama) Also nice, similar BYOK, this is less "agentic" though, you won't get a similar experience here, ellama is more of a LLM integration to emacs. You can get it to do completion and ask questions etc but it won't go update your whole project for you if you ask it to.

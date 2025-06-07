@@ -21,26 +21,28 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   const { data, content } = matter(fileContents);
 
   return (
-    <main className="space-y-8">
-      <div className="terminal-line mb-8">
-        <Link href="/blog" className="text-terminal-green hover:underline">
-          cd ..
-        </Link>
-      </div>
-
-      <article className="space-y-6">
-        <header className="space-y-4">
-          <h1 className="text-2xl font-bold">{data.title}</h1>
-          <div className="text-sm opacity-80">
-            <span className="text-terminal-green">{">"}</span> {data.date}
-          </div>
-          <p className="opacity-90">{data.description}</p>
-        </header>
-
-        <div className="terminal-box mx-auto prose prose-invert prose-terminal">
-          <Markdown className="mx-auto" remarkPlugins={[remarkGfm]}>{content}</Markdown>
+    <main className="min-h-screen p-4" style={{ backgroundColor: 'var(--theme-bg)', color: 'var(--theme-text)' }}>
+      <div className="max-w-4xl mx-auto space-y-8">
+        <div className="terminal-line mb-8">
+          <Link href="/blog" className="hover:underline" style={{ color: 'var(--theme-text)' }}>
+            cd ..
+          </Link>
         </div>
-      </article>
+
+        <article className="space-y-6">
+          <header className="space-y-4">
+            <h1 className="text-2xl font-bold">{data.title}</h1>
+            <div className="text-sm opacity-80">
+              <span style={{ color: 'var(--theme-text)' }}>{">"}</span> {data.date}
+            </div>
+            <p className="opacity-90">{data.description}</p>
+          </header>
+
+          <div className="terminal-box mx-auto prose prose-terminal">
+            <Markdown className="mx-auto" remarkPlugins={[remarkGfm]}>{content}</Markdown>
+          </div>
+        </article>
+      </div>
     </main>
   )
 }

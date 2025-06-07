@@ -13,9 +13,9 @@ export default function Home() {
   if (!mounted) return null
 
   return (
-    <main className="min-h-screen bg-black text-green-500 p-4 font-mono">
-      <div className="max-w-4xl mx-auto bg-black rounded-xl bg-card text-card-foreground shadow">
-        <div className="rounded-lg bg-black text-green-500 shadow-sm font-mono p-6">
+    <main className="min-h-screen p-4 font-mono" style={{ backgroundColor: 'var(--theme-bg)', color: 'var(--theme-text)' }}>
+      <div className="max-w-4xl mx-auto" style={{ backgroundColor: 'var(--theme-bg)' }}>
+        <div className="font-mono p-6" style={{ backgroundColor: 'var(--theme-bg)', color: 'var(--theme-text)' }}>
           <pre className="text-xs sm:text-sm md:text-base whitespace-pre overflow-x-auto">
 {`
  ____  _                      _  __                          _
@@ -28,13 +28,13 @@ export default function Home() {
           </pre>
           <div className="mt-6 space-y-4">
             <section>
-              <h2 className="text-green-500 text-lg sm:text-xl">{'>'} whoami</h2>
+              <h2 className="text-lg sm:text-xl" style={{ color: 'var(--theme-text)' }}>{'>'} whoami</h2>
               <p className="ml-4">Software Engineer based in Stockholm, Sweden</p>
               <p className="ml-4">Currently building things at Klarna</p>
             </section>
 
             <section>
-              <h2 className="text-green-500 text-lg sm:text-xl">{'>'} skills</h2>
+              <h2 className="text-lg sm:text-xl" style={{ color: 'var(--theme-text)' }}>{'>'} skills</h2>
               <pre className="ml-4 overflow-x-auto">
 {`
 ┌──────────────────────┐
@@ -50,7 +50,7 @@ export default function Home() {
             </section>
 
             <section>
-              <h2 className="text-green-500 text-lg sm:text-xl">{'>'} projects</h2>
+              <h2 className="text-lg sm:text-xl" style={{ color: 'var(--theme-text)' }}>{'>'} projects</h2>
               <pre className="ml-4 overflow-x-auto">
 {`
 ┌────────────────────────────────────────────────────────────────-----------------┐
@@ -74,7 +74,7 @@ export default function Home() {
             </section>
 
             <section>
-              <h2 className="text-green-500 text-lg sm:text-xl">{'>'} writing</h2>
+              <h2 className="text-lg sm:text-xl" style={{ color: 'var(--theme-text)' }}>{'>'} writing</h2>
               <pre className="ml-4 overflow-x-auto">
 {`
 ┌──────────────────────────────────────────┐
@@ -85,7 +85,7 @@ export default function Home() {
               </pre>
             </section>
             <section>
-              <h2 className="text-green-500 text-lg sm:text-xl">{'>'} contact</h2>
+              <h2 className="text-lg sm:text-xl" style={{ color: 'var(--theme-text)' }}>{'>'} contact</h2>
               <pre className="ml-4 overflow-x-auto">
 
 {`┌─────────────────────────────┐
@@ -97,7 +97,7 @@ export default function Home() {
             </section>
 
             <div className="typing-indicator">
-              <span className="text-green-500">█</span>
+              <span style={{ color: 'var(--theme-text)' }}>█</span>
             </div>
           </div>
         </div>

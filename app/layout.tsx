@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { Analytics } from "@vercel/analytics/react"
+import { ThemeProvider } from '@/lib/theme-context'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 const mono = JetBrains_Mono({ subsets: ['latin'] })
 
@@ -17,8 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={mono.className}>{children}</body>
-      <Analytics />
+      <body className={mono.className}>
+        <ThemeProvider>
+          {children}
+          <ThemeToggle />
+        </ThemeProvider>
+        <Analytics />
+      </body>
     </html>
   )
 }

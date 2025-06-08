@@ -56,12 +56,12 @@ Some really nice features to point out:
 
 - `M-x amp--prompt` and `M-x amp--prompt-for-region` send a generic prompt from anywhere in your project to amp or send it with some highlighted context
 
-- `M-x amp--fix-for-region`: imagine you're wrtting some tests, `M-x rust-test` runs a compilation buffer and we get an assertion error. Navigate to that buffer, highlight the asserttion error, `M-x amp--fix-for-region` and bam, it gets right to work fixing that test.
+- `M-x amp--fix-region`: imagine you're wrtting some tests, `M-x rust-test` runs a compilation buffer and we get an assertion error. Navigate to that buffer, highlight the asserttion error, `M-x amp--fix-region` and bam, it gets right to work fixing that test.
 
 
-- `M-x amp--improve-for-region` highlight some text, `M-x amp--improve-for-region` and bam, watch the buffer update your code as amp gets to work. I personally use this all the time when I'm working in a language where I'm not sure what the idiomatic way to express something might be, it's great for learning.
+- `M-x amp--improve-region` highlight some text, `M-x amp--improve-region` and bam, watch the buffer update your code as amp gets to work. I personally use this all the time when I'm working in a language where I'm not sure what the idiomatic way to express something might be, it's great for learning.
 
-- `M-x amp--explain-for-region` Highlight some text and ask to explain it, pretty standard.
+- `M-x amp--explain-region` Highlight some text and ask to explain it, pretty standard.
 
 - `M-x amp--switch` shortcut to list all your open amp buffers and easily switch between them.
 

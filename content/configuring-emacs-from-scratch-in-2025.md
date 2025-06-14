@@ -9,7 +9,7 @@ A few years ago I wrote my love letter to emacs, a blog post I called ["Your fir
 This config focuses on a few main things:
 1. I try to use new and actively maintained packages. The ones from [minad](https://github.com/minad) on github particularly interested me because they focus on recent versions of emacs and "doing one thing well".
 2. Using more of the emacs builtins! A lot of great packages have been merged into emacs in the last few years, they're well polished, maintained and do the work of third-party packages I used to rely on.
-3. Tree sitter, I still don't have the hang of structural editing that tree-sitter brings but even just the improved syntax highlighting makes it worth setting up.
+3. Tree sitter, I still don't have the hang of structural editing that tree-sitter enables but even just the improved syntax highlighting makes it worth setting up.
 4. It is impossible not to talk about AI and the importance of having tooling integrated into your editor, no matter what your stance is on the future of coding it's just useful to have these tools at your fingertips with a slick `C-*` keybinding.
 
 
@@ -45,7 +45,7 @@ Let's get package management out of the way, we are going to use some third-part
 (setq straight-use-package-by-default t)
 ```
 
-Now we can do `(use-package <package-name>)` for a package on melpa and `(straight-use-package '(amp :type git :host github :repo "<repo-owner>/<repo-name>"))` for installing right from source.
+Now we can do `(use-package <package-name>)` for a package on melpa and `(straight-use-package '(<package-name> :type git :host github :repo "<repo-owner>/<repo-name>"))` for installing right from source.
 
 I always have a bunch of "quality of life" default settings, I won't write them all down here but you can find them on my config [shaneikennedy/.emacs.d](https://github.com/shaneikennedy/.emacs.d). I'm also not going to go through stuff like magit or my keybindings for moving around emacs, you can see them in my config if you care or read the "first taste of emacs" post above if you care but I'm going to focus on the 2025 stuff.
 

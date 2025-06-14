@@ -4,7 +4,7 @@ date: "2025-06-14"
 description: "How I rewrote my 5 year old emacs config from scratch. Modern packages from the community, making use of all the recent improvements in emacs-proper, and of course vibecoding."
 ---
 
-A few years ago I wrote my love letter to emacs, a blog post I called ["Your first taste of emacs"](/blog/emacs-intro) about why I love emacs, what I think it does better than most other editors, how I use it and what I think are the absolute basics to getting started with emacs. For the love letter parts, go read that post, because this is going to be short and sweet.
+A few years ago I wrote my love letter to emacs, a blog post I called ["Your first taste of emacs"](/blog/emacs-intro) about why I love emacs, what I think it does better than most other editors, how I use it and what I think are the absolute basics to getting started with emacs. For the love letter parts, go read that post, but the configuration I shared in that post could absolutely use some updating; emacs and the community have made some great progress in recent version of emacs, and well, LLMs happened since that post.
 
 This config focuses on a few main things:
 1. I try to use new and actively maintained packages. The ones from [minad](https://github.com/minad) on github particularly interested me because they focus on recent versions of emacs and "doing one thing well".

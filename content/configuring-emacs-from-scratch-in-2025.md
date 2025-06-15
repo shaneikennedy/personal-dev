@@ -127,7 +127,7 @@ Moving from lsp-mode to eglot has been a major, major upgrade for me. It's much 
 projectile -> project honestly I don't think I've noticed a difference, the commands that I use feel identical to me, I never had any problems with projectile and I don't have any with project.el. The only reason I switched was to have one less package to pull from melpa.
 
 
-Now on to tree-sitter. Like I said, I still haven't gotten the hang of structural editing yet in my workflow, I'm just too used to and too fast with a grep flow that switching my mental model from grep to "I want to move up a node in the hierarchy of this function" (?). Idk skill-issue or whatever, I'm trying, but regardless if that clicks with you or not the syntax highlighting that you get in treesitter modes is just better and worth setting up.
+Now on to tree-sitter. Like I said, I still haven't gotten the hang of structural editing yet in my workflow, I'm just too used to and too fast with a grep flow that switching my mental model from grep to "I want to move up a node in the hierarchy of this function" (?) just doesn't compute for me yet. Idk skill-issue or whatever, I'm trying, but regardless if that clicks with you or not the syntax highlighting that you get in treesitter modes is just better and worth setting up.
 
 ```emacs-lisp
 (use-package treesit-auto

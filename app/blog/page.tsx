@@ -24,7 +24,7 @@ export default function BlogPage() {
 
         <div className="space-y-6 mx-auto">
           {posts.map((post) => (
-            <article key={post.slug} className="terminal-box max-w-[640px]">
+            <article key={post.slug} className="terminal-box max-w-full">
               <Link href={`/blog/${post.slug}`} className="block hover:border-current">
                 <h2 className="text-lg font-bold" dangerouslySetInnerHTML={{__html: post.title}} />
                 <div className="text-sm opacity-80">

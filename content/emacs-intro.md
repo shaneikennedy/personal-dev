@@ -4,6 +4,9 @@ date: "2021-10-10"
 description: "See why emacs users are diehards when it comes to their editor with a quick intro, guided configuration and quick start on editing in your first project."
 ---
 
+## 2025 edit
+Emacs and the world has changed quite a bit since I wrote this "intro to emacs" article. If you are still new to emacs this post is still a good start for the basics and the concepts you need to get used to in emacs, but for actually configuring emacs I'd rather send you to [configuring emacs from scratch in 2025](/blog/configuring-emacs-from-scratch-in-2025) that shouws you how to get started with all the nice new things in emacs and the community + LLM integrations. If you're a seasoned emacser and just looking for config tips head straight to [configuring emacs from scratch in 2025](/blog/configuring-emacs-from-scratch-in-2025).
+
 ## Foreword
 There are a few reasons why you might be here reading this article
 1. You heard emacs is an editor for "Hardcore Devs" on some thread about what editor is best

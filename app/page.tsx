@@ -79,6 +79,7 @@ export default function Home() {
 {`
 ┌──────────────────────────────────────────┐
 │ blog: `}<Link href="/blog" rel="noopener noreferrer" className="hover:underline">$ cd blog/ </Link>{`                        │
+│ cv: `}<Link href="/cv" rel="noopener noreferrer" className="hover:underline">$ cd cv/ </Link>{`                            │
 │ x: `}<a href="https://x.com/shaneikennedy" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">@shaneikennedy</a>{`                        │
 └──────────────────────────────────────────┘
 `}

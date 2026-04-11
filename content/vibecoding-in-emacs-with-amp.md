@@ -30,6 +30,7 @@ Add this to your Emacs configuration:
 ### Manual Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/shaneikennedy/amp.el.git
    ```
@@ -52,12 +53,11 @@ But most importantly, **we're back in emacs**. No more being a fish out of water
 
 Some really nice features to point out:
 
-- `M-x amp` is _project_-based. You'll notce that when you start your first amp session the buffer is called \*amp-<project-name>\*, that means you can have multiple projects open at once in emacs, vibe coding in all of them. The amp.el commands are project aware thanks to project.el built in to emacs (🙏) so if you're using amp--fix-* in one project you don't confuse/mangle/mix the context from one project to another. I have 3 amp processes running while writing this.
+- `M-x amp` is _project_-based. You'll notce that when you start your first amp session the buffer is called \*amp-<project-name>\*, that means you can have multiple projects open at once in emacs, vibe coding in all of them. The amp.el commands are project aware thanks to project.el built in to emacs (🙏) so if you're using amp--fix-\* in one project you don't confuse/mangle/mix the context from one project to another. I have 3 amp processes running while writing this.
 
 - `M-x amp--prompt` and `M-x amp--prompt-for-region` send a generic prompt from anywhere in your project to amp or send it with some highlighted context
 
 - `M-x amp--fix-region`: imagine you're wrtting some tests, `M-x rust-test` runs a compilation buffer and we get an assertion error. Navigate to that buffer, highlight the asserttion error, `M-x amp--fix-region` and bam, it gets right to work fixing that test.
-
 
 - `M-x amp--improve-region` highlight some text, `M-x amp--improve-region` and bam, watch the buffer update your code as amp gets to work. I personally use this all the time when I'm working in a language where I'm not sure what the idiomatic way to express something might be, it's great for learning.
 
@@ -67,7 +67,7 @@ Some really nice features to point out:
 
 - `M-x amp--kill` shortcut to select a running amp buffer to kill.
 
-
 ## Other resources:
+
 - [aideremacs](https://github.com/MatthewZMD/aidermacs) Really well done, bring-your-own-key so it's agent agnostic. It's also way more developed in terms of number of commands, and comes with a transient menu for discoverabillity. Definitely worth checking out if you don't mind the BYOK approach.
 - [ellama](https://github.com/s-kostyaev/ellama) Also nice, similar BYOK, this is less "agentic" though, you won't get a similar experience here, ellama is more of a LLM integration to emacs. You can get it to do completion and ask questions etc but it won't go update your whole project for you if you ask it to.

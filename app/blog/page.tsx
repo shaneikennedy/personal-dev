@@ -1,41 +1,49 @@
-import Link from "next/link"
-import { getMarkdownFiles } from "@/lib/getMarkdownFiles"
+import type { Metadata } from "next";
+import Link from "next/link";
+import { getAllPosts } from "@/lib/posts";
+import { InlineMarkdown } from "@/components/inline-markdown";
 
-export default function BlogPage() {
-  const posts = getMarkdownFiles()
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Writing on engineering tools, Emacs, Git, Docker, and more.",
+};
+
+function formatDate(iso: string) {
+  const d = new Date(iso);
+  return new Intl.DateTimeFormat("en-GB", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  }).format(d);
+}
+
+export default async function BlogIndexPage() {
+  const posts = await getAllPosts();
 
   return (
-    <main className="min-h-screen p-4" style={{ backgroundColor: 'var(--theme-bg)', color: 'var(--theme-text)' }}>
-      <div className="max-w-4xl mx-auto space-y-8">
-        <div className="terminal-line mb-8">
-          <Link href="/" className="hover:underline" style={{ color: 'var(--theme-text)' }}>
-            cd ..
-          </Link>
-        </div>
+    <div>
+      <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">Writing</p>
+      <h1 className="mt-4 font-sans text-4xl font-semibold tracking-tight text-zinc-50">Blog</h1>
 
-      <pre className="ascii-art text-sm md:text-base mb-8">
-        {`   ____  __
-  / __ )/ /___  ____ _
- / __  / / __ \\/ __ \`/
-/ /_/ / / /_/ / /_/ /
-/_____/_/\\____/\\__, /
-              /____/   `}
-      </pre>
-
-        <div className="space-y-6 mx-auto">
-          {posts.map((post) => (
-            <article key={post.slug} className="terminal-box max-w-full">
-              <Link href={`/blog/${post.slug}`} className="block hover:border-current">
-                <h2 className="text-lg font-bold" dangerouslySetInnerHTML={{__html: post.title}} />
-                <div className="text-sm opacity-80">
-                  <span style={{ color: 'var(--theme-text)' }}>{">"}</span> {post.date}
-                </div>
-                <p className="opacity-90">{post.description}</p>
-              </Link>
-            </article>
-          ))}
-        </div>
-      </div>
-    </main>
-  )
+      <ol className="mt-14 divide-y divide-border-subtle border-t border-border-subtle">
+        {posts.map((post) => (
+          <li key={post.slug} className="py-10 first:pt-10">
+            <time dateTime={post.date} className="font-mono text-xs text-zinc-500">
+              {formatDate(post.date)}
+            </time>
+            <Link href={`/blog/${post.slug}`} className="group mt-3 block">
+              <span className="text-xl font-semibold tracking-tight text-zinc-100 group-hover:text-accent">
+                <InlineMarkdown>{post.title}</InlineMarkdown>
+              </span>
+              {post.description ? (
+                <span className="mt-2 block text-[15px] leading-relaxed text-zinc-500 group-hover:text-zinc-400">
+                  {post.description}
+                </span>
+              ) : null}
+            </Link>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
 }

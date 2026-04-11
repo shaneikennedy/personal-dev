@@ -1,108 +1,105 @@
-'use client'
+import type { Metadata } from "next";
+import Link from "next/link";
 
-import Link from 'next/link';
-import { useState, useEffect } from 'react'
+export const metadata: Metadata = {
+  title: "About",
+  description: "Personal website of Shane Kennedy, software engineer based in Stockholm.",
+};
 
-export default function Home() {
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, []);
-
-  if (!mounted) return null
-
+export default function HomePage() {
   return (
-    <main className="min-h-screen p-4 font-mono" style={{ backgroundColor: 'var(--theme-bg)', color: 'var(--theme-text)' }}>
-      <div className="max-w-4xl mx-auto" style={{ backgroundColor: 'var(--theme-bg)' }}>
-        <div className="font-mono p-6" style={{ backgroundColor: 'var(--theme-bg)', color: 'var(--theme-text)' }}>
-          <pre className="text-xs sm:text-sm md:text-base whitespace-pre overflow-x-auto">
-{`
- ____  _                      _  __                          _
-/ ___|| |__   __ _ _ __   ___| |/ /___ _ __  _ __   ___  __| |_   _
-\\___ \\| '_ \\ / _\` | '_ \\ / _ \\ ' // _ \\ '_ \\| '_ \\ / _ \\/ _\` | | | |
- ___) | | | | (_| | | | |  __/ . \\  __/ | | | | | |  __/ (_| | |_| |
-|____/|_| |_|\\__,_|_| |_|\\___|_|\\_\\___|_| |_|_| |_|\\___|\\__,_|\\__, |
-                                                               |___/
-`}
-          </pre>
-          <div className="mt-6 space-y-4">
-            <section>
-              <h2 className="text-lg sm:text-xl" style={{ color: 'var(--theme-text)' }}>{'>'} whoami</h2>
-              <p className="ml-4">Software Engineer based in Stockholm, Sweden</p>
-              <p className="ml-4">Currently building things at Klarna</p>
-            </section>
+    <div className="max-w-2xl">
+      <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
+        Stockholm · Software engineer
+      </p>
+      <h1 className="mt-4 font-sans text-4xl font-semibold tracking-tight text-zinc-50 sm:text-5xl">
+        Shane Kennedy
+      </h1>
+      <p className="mt-8 text-lg leading-relaxed text-zinc-400">
+        I build and lead systems around data platforms, streaming, and backend services, recently
+        focused on Apache Kafka at scale, ingestion pipelines, and the tooling that keeps engineers
+        productive.
+      </p>
+      <p className="mt-6 text-lg leading-relaxed text-zinc-400">
+        This site collects a longer{" "}
+        <Link href="/cv" className="text-accent hover:underline">
+          CV
+        </Link>{" "}
+        and occasional{" "}
+        <Link href="/blog" className="text-accent hover:underline">
+          notes
+        </Link>{" "}
+        on Emacs, Git, containers, and whatever I am learning in the open.
+      </p>
 
-            <section>
-              <h2 className="text-lg sm:text-xl" style={{ color: 'var(--theme-text)' }}>{'>'} skills</h2>
-              <pre className="ml-4 overflow-x-auto">
-{`
-┌──────────────────────┐
-│ Software Engineering │
-├──────────────────────┤
-│ Kafka                │
-│ TypeScript           │
-│ Rust                 │
-│ Emacs                │
-└──────────────────────┘
-`}
-              </pre>
-            </section>
+      <section className="mt-14" aria-labelledby="interests-heading">
+        <h2
+          id="interests-heading"
+          className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500"
+        >
+          Current Interests
+        </h2>
+        <ul className="mt-5 list-none space-y-3">
+          <li className="flex gap-3 text-[17px] leading-relaxed text-zinc-300">
+            <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden />
+            <span>
+              Search in the agentic world{" "}
+              <a
+                href="https://github.com/shaneikennedy/varro"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-sm text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
+              >
+                varro
+              </a>
+            </span>
+          </li>
+        </ul>
+      </section>
 
-            <section>
-              <h2 className="text-lg sm:text-xl" style={{ color: 'var(--theme-text)' }}>{'>'} projects</h2>
-              <pre className="ml-4 overflow-x-auto">
-{`
-┌────────────────────────────────────────────────────────────────-----------------┐
-│ npm.el/bun.el                                                                   │
-│ └─ npm and bun clients for emacs                                                │
-├────────────────────────────────────────────────────────────────-----------------┤
-│ findmyvibe                                                                      │
-│ └─ Spotify playlists for how you're really feeling                              │
-├────────────────────────────────────────────────────────────────-----------------┤
-│ kafka-to-http                                                                   │
-│ └─ Stream data from Kafka topics to HTTP endpoints                              │
-├────────────────────────────────────────────────────────────────-----------------┤
-│ pydepsync                                                                       │
-│ └─ Sync dependencies in your python codebase to your pyproject.toml             │
-├────────────────────────────────────────────────────────────────-----------------┤
-│ ktui                                                                            │
-│ └─ A kafka tui to view config, topics and live tail data                        │
-└────────────────────────────────────────────────────────────────-----------------┘
-`}
-              </pre>
-            </section>
-
-            <section>
-              <h2 className="text-lg sm:text-xl" style={{ color: 'var(--theme-text)' }}>{'>'} writing</h2>
-              <pre className="ml-4 overflow-x-auto">
-{`
-┌──────────────────────────────────────────┐
-│ blog: `}<Link href="/blog" rel="noopener noreferrer" className="hover:underline">$ cd blog/ </Link>{`                        │
-│ cv: `}<Link href="/cv" rel="noopener noreferrer" className="hover:underline">$ cd cv/ </Link>{`                            │
-│ x: `}<a href="https://x.com/shaneikennedy" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">@shaneikennedy</a>{`                        │
-└──────────────────────────────────────────┘
-`}
-              </pre>
-            </section>
-            <section>
-              <h2 className="text-lg sm:text-xl" style={{ color: 'var(--theme-text)' }}>{'>'} contact</h2>
-              <pre className="ml-4 overflow-x-auto">
-
-{`┌─────────────────────────────┐
-│ GitHub: `}<a href="https://github.com/shaneikennedy" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">@shaneikennedy</a>{`      │
-│ Location: Stockholm         │
-│ Company: Klarna             │
-└─────────────────────────────┘`}
-              </pre>
-            </section>
-
-            <div className="typing-indicator">
-              <span style={{ color: 'var(--theme-text)' }}>█</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-  )
+      <section className="mt-14" aria-labelledby="elsewhere-heading">
+        <h2
+          id="elsewhere-heading"
+          className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500"
+        >
+          Elsewhere
+        </h2>
+        <ul className="mt-5 space-y-3">
+          {(
+            [
+              {
+                label: "GitHub",
+                href: "https://github.com/shaneikennedy",
+                secondary: "@shaneikennedy",
+              },
+              {
+                label: "X",
+                href: "https://x.com/shaneikennedy",
+                secondary: "@shaneikennedy",
+              },
+              {
+                label: "LinkedIn",
+                href: "https://www.linkedin.com/in/shane-kennedy-087b77130",
+                secondary: null,
+              },
+            ] as const
+          ).map(({ label, href, secondary }) => (
+            <li key={href}>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline font-mono text-sm text-zinc-200 underline decoration-zinc-700 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent/50"
+              >
+                {label}
+              </a>
+              {secondary ? (
+                <span className="font-mono text-sm text-zinc-600"> · {secondary}</span>
+              ) : null}
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+  );
 }

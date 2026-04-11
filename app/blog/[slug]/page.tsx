@@ -1,48 +1,65 @@
-import fs from "fs"
-import path from "path"
-import matter from "gray-matter"
-import Markdown from "react-markdown"
-import remarkGfm from 'remark-gfm'
-import Link from "next/link"
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { getAllPosts, getPostBySlug } from "@/lib/posts";
+import { PostBody } from "@/components/post-body";
+import { InlineMarkdown } from "@/components/inline-markdown";
+
+type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
-  const contentDirectory = path.join(process.cwd(), "content")
-  const fileNames = fs.readdirSync(contentDirectory)
-
-  return fileNames.map((fileName) => ({
-    slug: fileName.replace(/\.md$/, ""),
-  }))
+  const posts = await getAllPosts();
+  return posts.map((p) => ({ slug: p.slug }));
 }
 
-export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const filePath = path.join(process.cwd(), "content", `${slug}.md`);
-  const fileContents = fs.readFileSync(filePath, "utf8")
-  const { data, content } = matter(fileContents);
+  const post = await getPostBySlug(slug);
+  if (!post) return { title: "Not found" };
+  return {
+    title: post.title.replace(/<[^>]+>/g, ""),
+    description: post.description,
+  };
+}
+
+function formatDate(iso: string) {
+  const d = new Date(iso);
+  return new Intl.DateTimeFormat("en-GB", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }).format(d);
+}
+
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+  if (!post) notFound();
 
   return (
-    <main className="min-h-screen p-4" style={{ backgroundColor: 'var(--theme-bg)', color: 'var(--theme-text)' }}>
-      <div className="max-w-4xl mx-auto space-y-8">
-        <div className="terminal-line mb-8">
-          <Link href="/blog" className="hover:underline" style={{ color: 'var(--theme-text)' }}>
-            cd ..
-          </Link>
-        </div>
-
-        <article className="space-y-6">
-          <header className="space-y-4">
-            <h1 className="text-2xl font-bold">{data.title}</h1>
-            <div className="text-sm opacity-80">
-              <span style={{ color: 'var(--theme-text)' }}>{">"}</span> {data.date}
-            </div>
-            <p className="opacity-90">{data.description}</p>
-          </header>
-
-          <div className="terminal-box mx-auto prose prose-terminal">
-            <Markdown className="mx-auto" remarkPlugins={[remarkGfm]}>{content}</Markdown>
-          </div>
-        </article>
+    <article className="max-w-3xl">
+      <Link
+        href="/blog"
+        className="font-mono text-xs uppercase tracking-widest text-zinc-500 transition-colors hover:text-accent"
+      >
+        ← Blog
+      </Link>
+      <header className="mt-8 border-b border-border-subtle pb-10">
+        <time dateTime={post.date} className="font-mono text-xs text-zinc-500">
+          {formatDate(post.date)}
+        </time>
+        <h1 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-50 sm:text-4xl">
+          <InlineMarkdown>{post.title}</InlineMarkdown>
+        </h1>
+        {post.description ? (
+          <p className="mt-4 text-lg text-zinc-300 transition-colors hover:text-zinc-200">
+            {post.description}
+          </p>
+        ) : null}
+      </header>
+      <div className="pt-12">
+        <PostBody>{post.content}</PostBody>
       </div>
-    </main>
-  )
+    </article>
+  );
 }
